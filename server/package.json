@@ -1,5 +1,6 @@
 {
   "name": "server",
+  "main": "src/index.ts",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
     "wrangler:dev": "wrangler dev",
@@ -8,9 +9,12 @@
   "dependencies": {
     "@hono/trpc-server": "^0.3.4",
     "@libsql/client": "^0.14.0",
+    "@trpc/client": "^11.0.0-rc.700",
+    "@trpc/server": "^11.0.0-rc.700",
     "better-auth": "^1.1.14",
     "drizzle-orm": "^0.38.4",
-    "hono": "^4.6.17"
+    "hono": "^4.6.17",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",
