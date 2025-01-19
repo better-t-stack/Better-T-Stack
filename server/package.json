@@ -3,6 +3,9 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
+    "db:local": "turso dev --db-file local.db",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
     "wrangler:dev": "wrangler dev",
     "wrangler:deploy": "wrangler deploy --minify"
   },

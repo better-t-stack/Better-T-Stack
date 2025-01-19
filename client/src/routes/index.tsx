@@ -1,4 +1,3 @@
-import * as React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import SignUp from "@/components/sign-up-form";
 import { trpc } from "@/utils/trpc";

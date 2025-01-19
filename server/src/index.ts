@@ -5,6 +5,7 @@ import { cors } from "hono/cors";
 import { trpcServer } from "@hono/trpc-server";
 import { appRouter } from "./routers/index";
 import { createContext } from "./lib/context";
+import { logger } from "hono/logger";
 
 type Bindings = {
   FOO: string;
@@ -13,6 +14,8 @@ type Bindings = {
 const app = new Hono<{
   Bindings: Bindings;
 }>();
+
+app.use(logger());
 
 app.use(
   "/*",
