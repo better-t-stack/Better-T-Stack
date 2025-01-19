@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "wrangler:dev": "wrangler dev",
+    "wrangler:deploy": "wrangler deploy --minify"
+  },
+  "dependencies": {
+    "@hono/trpc-server": "^0.3.4",
+    "@libsql/client": "^0.14.0",
+    "better-auth": "^1.1.14",
+    "drizzle-orm": "^0.38.4",
+    "hono": "^4.6.17"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250109.0",
+    "@types/bun": "^1.1.17",
+    "drizzle-kit": "^0.30.2",
+    "wrangler": "^3.101.0"
+  }
+}
