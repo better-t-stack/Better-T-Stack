@@ -4,6 +4,7 @@ import { auth } from "./lib/auth";
 import { cors } from "hono/cors";
 import { trpcServer } from "@hono/trpc-server";
 import { appRouter } from "./routers/index";
+import { createContext } from "./lib/context";
 
 type Bindings = {
   FOO: string;
@@ -29,6 +30,9 @@ app.use(
   "/trpc/*",
   trpcServer({
     router: appRouter,
+    createContext: (_opts, hono) => {
+      return createContext({ hono });
+    },
   }),
 );
 

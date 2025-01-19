@@ -1,9 +1,16 @@
-import { router, publicProcedure } from "../lib/trpc";
+import { router, publicProcedure, protectedProcedure } from "../lib/trpc";
 import { z } from "zod";
 
 export const appRouter = router({
   healthCheck: publicProcedure.query(() => {
     return "OK";
+  }),
+  privateData: protectedProcedure.query(({ ctx }) => {
+    console.log(ctx.session.user.name);
+    return {
+      message: "This is private",
+      user: ctx.session.user,
+    };
   }),
 });
 
