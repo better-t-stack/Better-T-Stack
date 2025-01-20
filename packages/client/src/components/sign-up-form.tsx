@@ -1,6 +1,8 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -31,26 +33,25 @@ export default function SignUp() {
   return (
     <div>
       <div>session: {session?.user.name}</div>
-
-      <input
+      <Input
         type="name"
         value={name}
         className="border"
         onChange={(e) => setName(e.target.value)}
       />
-      <input
+      <Input
         type="email"
         value={email}
         className="border"
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <Input
         type="password"
         className="border"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={signUp}>Sign Up</button>
+      <Button onClick={signUp}>Sign Up</Button>
     </div>
   );
 }

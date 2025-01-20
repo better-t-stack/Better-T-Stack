@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "@tht/server",
   "main": "src/index.ts",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
@@ -7,12 +7,12 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "wrangler:dev": "wrangler dev",
-    "wrangler:deploy": "wrangler deploy --minify"
+    "wrangler:deploy": "wrangler deploy --minify",
+    "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server"
   },
   "dependencies": {
     "@hono/trpc-server": "^0.3.4",
     "@libsql/client": "^0.14.0",
-    "@trpc/client": "^11.0.0-rc.700",
     "@trpc/server": "^11.0.0-rc.700",
     "better-auth": "^1.1.14",
     "drizzle-orm": "^0.38.4",
