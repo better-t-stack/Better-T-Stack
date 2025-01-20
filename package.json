@@ -9,6 +9,8 @@
     "dev": "bun run --filter '@better-t/*' dev",
     "dev:client": "bun run --filter @better-t/client dev",
     "dev:server": "bun run --filter @better-t/server dev",
+    "db:local": "bun run --filter @better-t/server db:local",
+    "db:push": "bun run --filter @better-t/server db:push",
     "clean": "rm -rf node_modules packages/client/node_modules packages/server/node_modules bun.lockb packages/client/bun.lockb packages/server/bun.lockb"
   }
 }
