@@ -1,14 +1,14 @@
-import * as React from "react";
-import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import "../index.css";
+import { Toaster } from "@/components/ui/sonner";
 import {
   QueryCache,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { httpBatchLink } from "@trpc/client";
-import { useState } from "react";
+import { toast } from "sonner";
+import "../index.css";
 import { trpc } from "../utils/trpc";
 
 export const Route = createRootRoute({
@@ -19,14 +19,14 @@ function RootComponent() {
   const queryClient = new QueryClient({
     queryCache: new QueryCache({
       onError: (error) => {
-        // toast.error(error.message, {
-        //   action: {
-        //     label: "retry",
-        //     onClick: () => {
-        //       queryClient.invalidateQueries();
-        //     },
-        //   },
-        // });
+        toast.error(error.message, {
+          action: {
+            label: "retry",
+            onClick: () => {
+              queryClient.invalidateQueries();
+            },
+          },
+        });
       },
     }),
   });
@@ -48,7 +48,7 @@ function RootComponent() {
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
         <>
-          <div className="p-2 flex gap-2 text-lg">
+          <div className="p-2 flex gap-4 text-lg">
             <Link
               to="/"
               activeProps={{
@@ -57,7 +57,16 @@ function RootComponent() {
               activeOptions={{ exact: true }}
             >
               Home
-            </Link>{" "}
+            </Link>
+            <Link
+              to="/dashboard"
+              activeProps={{
+                className: "font-bold",
+              }}
+              activeOptions={{ exact: true }}
+            >
+              Dashboard
+            </Link>
             <Link
               to="/about"
               activeProps={{
@@ -69,6 +78,7 @@ function RootComponent() {
           </div>
           <hr />
           <Outlet />
+          <Toaster richColors />
           <TanStackRouterDevtools position="bottom-right" />
         </>
       </QueryClientProvider>
