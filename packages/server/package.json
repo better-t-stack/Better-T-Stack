@@ -1,5 +1,5 @@
 {
-  "name": "@tht/server",
+  "name": "@better-t/server",
   "main": "src/index.ts",
   "scripts": {
     "dev": "bun run --hot src/index.ts",

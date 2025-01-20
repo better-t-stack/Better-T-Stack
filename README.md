@@ -1,4 +1,4 @@
-# THT
+# Better-T
 
 A modern web application built with Tanstack Router, tRPC, and Hono.
 
@@ -35,7 +35,7 @@ The project is organized into two main directories:
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd THT
+cd better-t
 ```
 
 2. Install dependencies:

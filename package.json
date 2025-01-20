@@ -1,14 +1,14 @@
 {
-  "name": "tht",
+  "name": "better-t",
   "private": true,
   "workspaces": [
     "packages/client",
     "packages/server"
   ],
   "scripts": {
-    "dev": "bun run --filter '@tht/*' dev",
-    "dev:client": "bun run --filter @tht/client dev",
-    "dev:server": "bun run --filter @tht/server dev",
+    "dev": "bun run --filter '@better-t/*' dev",
+    "dev:client": "bun run --filter @better-t/client dev",
+    "dev:server": "bun run --filter @better-t/server dev",
     "clean": "rm -rf node_modules packages/client/node_modules packages/server/node_modules bun.lockb packages/client/bun.lockb packages/server/bun.lockb"
   }
 }
