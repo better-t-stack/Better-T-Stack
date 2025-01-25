@@ -1,10 +1,11 @@
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import {
   QueryCache,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { httpBatchLink } from "@trpc/client";
 import { toast } from "sonner";
@@ -47,40 +48,11 @@ function RootComponent() {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        <>
-          <div className="p-2 flex gap-4 text-lg">
-            <Link
-              to="/"
-              activeProps={{
-                className: "font-bold",
-              }}
-              activeOptions={{ exact: true }}
-            >
-              Home
-            </Link>
-            <Link
-              to="/dashboard"
-              activeProps={{
-                className: "font-bold",
-              }}
-              activeOptions={{ exact: true }}
-            >
-              Dashboard
-            </Link>
-            <Link
-              to="/about"
-              activeProps={{
-                className: "font-bold",
-              }}
-            >
-              About
-            </Link>
-          </div>
-          <hr />
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
           <Outlet />
           <Toaster richColors />
-          <TanStackRouterDevtools position="bottom-right" />
-        </>
+        </ThemeProvider>
+        <TanStackRouterDevtools position="bottom-right" />
       </QueryClientProvider>
     </trpc.Provider>
   );
