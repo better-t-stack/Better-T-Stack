@@ -8,7 +8,7 @@ export const auth = betterAuth({
     provider: "sqlite",
     schema: schema,
   }),
-  trustedOrigins: ["http://localhost:3001"],
+  trustedOrigins: [process.env.CORS_ORIGIN!],
   emailAndPassword: {
     enabled: true,
   },
