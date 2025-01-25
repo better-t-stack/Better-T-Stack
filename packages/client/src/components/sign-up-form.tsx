@@ -2,11 +2,11 @@ import { authClient } from "@/lib/auth-client";
 import { signInSchema, signUpSchema } from "@/lib/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "@tanstack/react-router";
-import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
+import Loader from "./loader";
 import { Button } from "./ui/button";
 import {
   Form,
@@ -23,7 +23,7 @@ export default function AuthForm() {
     from: "/",
   });
   const [isSignUp, setIsSignUp] = useState(false);
-  const { data: session, isPending } = authClient.useSession();
+  const { isPending } = authClient.useSession();
 
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(isSignUp ? signUpSchema : signInSchema),
@@ -82,11 +82,7 @@ export default function AuthForm() {
   };
 
   if (isPending) {
-    return (
-      <div className="flex h-svh items-center justify-center">
-        <Loader2 size="48" className="animate-spin" />
-      </div>
-    );
+    return <Loader />;
   }
 
   return (

@@ -1,12 +1,8 @@
-import { ModeToggle } from "@/components/mode-toggle";
-import UserMenu from "@/components/user-menu";
-import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
+import { ModeToggle } from "./mode-toggle";
+import UserMenu from "./user-menu";
 
-export const Route = createFileRoute("/_layout")({
-  component: RouteComponent,
-});
-
-function RouteComponent() {
+export default function Header() {
   return (
     <div>
       <div className="flex flex-row items-center justify-between px-2 py-1">
@@ -44,7 +40,6 @@ function RouteComponent() {
         </div>
       </div>
       <hr />
-      <Outlet />
     </div>
   );
 }

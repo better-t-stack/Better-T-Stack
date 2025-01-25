@@ -2,7 +2,7 @@ import SignUp from '@/components/sign-up-form'
 import { trpc } from '@/utils/trpc'
 import { createFileRoute, Link } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/_layout/')({
+export const Route = createFileRoute('/')({
   component: HomeComponent,
 })
 
