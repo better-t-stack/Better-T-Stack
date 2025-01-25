@@ -1,4 +1,5 @@
 import { ModeToggle } from "@/components/mode-toggle";
+import UserMenu from "@/components/user-menu";
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_layout")({
@@ -8,8 +9,8 @@ export const Route = createFileRoute("/_layout")({
 function RouteComponent() {
   return (
     <div>
-      <div className="flex flex-row items-center justify-between">
-        <div className="p-2 flex gap-4 text-lg">
+      <div className="flex flex-row items-center justify-between px-2 py-1">
+        <div className="flex gap-4 text-lg">
           <Link
             to="/"
             activeProps={{
@@ -37,7 +38,10 @@ function RouteComponent() {
             About
           </Link>
         </div>
-        <ModeToggle />
+        <div className="flex flex-row items-center gap-2">
+          <ModeToggle />
+          <UserMenu />
+        </div>
       </div>
       <hr />
       <Outlet />
