@@ -1,5 +1,5 @@
 {
-  "name": "better-t",
+  "name": "better-t-stack",
   "private": true,
   "workspaces": [
     "packages/client",
