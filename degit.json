@@ -1,6 +1,6 @@
 [
   {
     "action": "remove",
-    "files": ["LICENSE", "*.lock"]
+    "files": ["bun.lock"]
   }
 ]
