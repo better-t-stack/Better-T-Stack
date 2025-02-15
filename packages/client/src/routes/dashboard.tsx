@@ -1,4 +1,5 @@
 import { authClient } from "@/lib/auth-client";
+import { trpc } from "@/utils/trpc";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
@@ -16,6 +17,8 @@ function RouteComponent() {
 
   const navigate = Route.useNavigate();
 
+  const privateData = trpc.privateData.useQuery();
+
   useEffect(() => {
     if (!session && !isPending) {
       navigate({
@@ -32,6 +35,7 @@ function RouteComponent() {
     <div>
       <h1>Dashboard</h1>
       <p>Welcome {session?.user.name}</p>
+      <p>privateData: {privateData.data?.message}</p>
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { Hono } from "hono";
-import { env } from "hono/adapter";
 import { auth } from "./lib/auth";
 import { cors } from "hono/cors";
 import { trpcServer } from "@hono/trpc-server";
