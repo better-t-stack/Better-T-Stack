@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "typecheck": "tsc --noEmit",
     "dev": "vite --port=3001",
     "build": "vite build",
     "serve": "vite preview",
-    "start": "vite"
+    "start": "vite",
+    "check-types": "tsc --noEmit"
   },
   "devDependencies": {
     "@tanstack/router-plugin": "^1.101.0",

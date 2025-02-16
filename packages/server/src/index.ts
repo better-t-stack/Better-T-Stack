@@ -1,18 +1,14 @@
-import { Hono } from "hono";
-import { auth } from "./lib/auth";
-import { cors } from "hono/cors";
+import { serve } from "@hono/node-server";
 import { trpcServer } from "@hono/trpc-server";
-import { appRouter } from "./routers/index";
-import { createContext } from "./lib/context";
+import "dotenv/config";
+import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { logger } from "hono/logger";
+import { auth } from "./lib/auth";
+import { createContext } from "./lib/context";
+import { appRouter } from "./routers/index";
 
-type Bindings = {
-  FOO: string;
-};
-
-const app = new Hono<{
-  Bindings: Bindings;
-}>();
+const app = new Hono();
 
 app.use(logger());
 
@@ -42,4 +38,10 @@ app.get("/healthCheck", (c) => {
   return c.text("OK");
 });
 
-export default app;
+const port = 3000;
+console.log(`Server is running on http://localhost:${port}`);
+
+serve({
+  fetch: app.fetch,
+  port,
+});

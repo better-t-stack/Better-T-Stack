@@ -2,14 +2,19 @@
   "name": "better-t-stack",
   "private": true,
   "workspaces": [
-    "packages/client",
-    "packages/server"
+    "packages/*"
   ],
   "scripts": {
-    "dev": "bun run --filter '@better-t/*' dev",
-    "dev:client": "bun run --filter @better-t/client dev",
-    "dev:server": "bun run --filter @better-t/server dev",
-    "db:local": "bun run --filter @better-t/server db:local",
-    "db:push": "bun run --filter @better-t/server db:push"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev:client": "turbo -F @better-t/client dev",
+    "dev:server": "turbo -F @better-t/server dev",
+    "db:local": "turbo -F @better-t/server db:local",
+    "db:push": "turbo -F @better-t/server db:push"
+  },
+  "packageManager": "bun@1.2.2",
+  "devDependencies": {
+    "turbo": "^2.4.2"
   }
 }
