@@ -36,7 +36,7 @@ export default function Header() {
         </div>
         <div className="flex flex-row items-center gap-2">
           <ModeToggle />
-          <UserMenu />
+          {/* <UserMenu /> */}
         </div>
       </div>
       <hr />
