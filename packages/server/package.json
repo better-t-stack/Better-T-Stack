@@ -18,17 +18,17 @@
     "@hono/node-server": "^1.13.8",
     "@hono/trpc-server": "^0.3.4",
     "@libsql/client": "^0.14.0",
-    "@trpc/server": "^11.0.0-rc.748",
-    "better-auth": "^1.1.16",
+    "@trpc/server": "^11.0.0-rc.840",
+    "better-auth": "^1.2.4",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.4",
-    "hono": "^4.7.0",
-    "zod": "^3.24.1"
+    "hono": "^4.7.5",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
-    "tsx": "^4.19.2",
-    "drizzle-kit": "^0.30.4",
-    "@types/node": "^22.13.4",
-    "typescript": "^5.7.3"
+    "tsx": "^4.19.3",
+    "drizzle-kit": "^0.30.5",
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
   }
 }

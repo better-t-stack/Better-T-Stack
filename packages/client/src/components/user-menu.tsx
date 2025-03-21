@@ -8,35 +8,35 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { authClient } from "@/lib/auth-client";
 import { useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
+import { Link } from "@tanstack/react-router";
 
 export default function UserMenu() {
   const navigate = useNavigate();
   const { data: session, isPending } = authClient.useSession();
 
-  useEffect(() => {
-    if (!session && !isPending) {
-      navigate({
-        to: "/",
-      });
-    }
-  }, [session, isPending]);
-
   if (isPending) {
     return <Skeleton className="h-9 w-24" />;
+  }
+
+  if (!session) {
+    return (
+      <Button variant="outline" asChild>
+        <Link to="/login">Sign In</Link>
+      </Button>
+    );
   }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">{session?.user.name}</Button>
+        <Button variant="outline">{session.user.name}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-card">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>{session?.user.email}</DropdownMenuItem>
+        <DropdownMenuItem>{session.user.email}</DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Button
             variant="destructive"

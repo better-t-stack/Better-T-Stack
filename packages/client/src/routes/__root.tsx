@@ -8,6 +8,7 @@ import {
   Outlet,
   createRootRouteWithContext,
   useRouterState,
+  HeadContent,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import "../index.css";
@@ -18,6 +19,23 @@ export interface RouterAppContext {
 
 export const Route = createRootRouteWithContext<RouterAppContext>()({
   component: RootComponent,
+  head: () => ({
+    meta: [
+      {
+        title: "My App",
+      },
+      {
+        name: "description",
+        content: "My App is a web application",
+      },
+    ],
+    links: [
+      {
+        rel: "icon",
+        href: "/favicon.ico",
+      },
+    ],
+  }),
 });
 
 function RootComponent() {
@@ -26,6 +44,7 @@ function RootComponent() {
   });
   return (
     <>
+      <HeadContent />
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <Header />
         {isFetching && <Loader />}

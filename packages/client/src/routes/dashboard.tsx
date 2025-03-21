@@ -5,11 +5,6 @@ import { useEffect } from "react";
 
 export const Route = createFileRoute("/dashboard")({
   component: RouteComponent,
-  loader: async ({ context: { trpcQueryUtils } }) => {
-    await trpcQueryUtils.healthCheck.ensureData();
-    await trpcQueryUtils.privateData.ensureData();
-    return;
-  },
 });
 
 function RouteComponent() {
@@ -22,7 +17,7 @@ function RouteComponent() {
   useEffect(() => {
     if (!session && !isPending) {
       navigate({
-        to: "/",
+        to: "/login",
       });
     }
   }, [session, isPending]);
